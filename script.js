@@ -3,42 +3,44 @@
   var equalsButton = document.querySelector('button[value="="]');
   var clearButton = document.querySelector('button[value="C"]');
 
-  var operators = ['+', '-', '*', '/'];
-  var allButtons = [];
 
-  for(var i = 0; i < 10; i++) {
-    var numButton = document.querySelector('button[value="'+i+'"');
-    allButtons.push(numButton);
+  function generateButtons() {
+    var operators = ['+', '-', '*', '/'];
+    var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    var btnValues = operators.concat(numbers);
+    var allButtons = [];
+
+    for(var i = 0; i < btnValues.length; i++) {
+      var button = document.querySelector('button[value="' + btnValues[i] + '"]');
+      allButtons.push(button);
+    }
+
+    allButtons.forEach(function(btn) {
+      btn.addEventListener('click', printValue);
+    });
   }
 
-  for(var j = 0; j < operators.length; j ++) {
-    var operatorButton = document.querySelector('button[value="' + operators[j] + '"]');
-    allButtons.push(operatorButton);
+  function addClickHandlers() {
+    equalsButton.addEventListener('click', calculateEquation);
+    clearButton.addEventListener('click', clearAll);
   }
-
-  console.log(allButtons);
-
-  allButtons.forEach(function(btn) {
-    btn.addEventListener('click', printValue);
-  });
 
   function printValue(event) {
     event.preventDefault();
     display.value += this.value;
   }
 
-  equalsButton.addEventListener('click', calculateEquation);
-
   function calculateEquation(event) {
     event.preventDefault();
     display.value = eval(display.value);
   }
 
-  clearButton.addEventListener('click', clearAll);
-
   function clearAll(event) {
     event.preventDefault();
-    display.value = '0';
+    display.value = '';
   }
+
+  generateButtons();
+  addClickHandlers();
 
 })();
