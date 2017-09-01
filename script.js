@@ -1,4 +1,4 @@
-(function () {
+var Calculator = (function () {
   var display = document.querySelector('input[name="display"]');
 
   function generateButtons() {
@@ -36,9 +36,8 @@
     display.value = '';
   }
 
-  function init() {
-    addClickHandlers();
-  }
+  return {
+    init: addClickHandlers
+  };
 
-  init();
 })();
