@@ -1,26 +1,20 @@
 (function () {
   var display = document.querySelector('input[name="display"]');
-  var equalsButton = document.querySelector('button[value="="]');
-  var clearButton = document.querySelector('button[value="C"]');
-
 
   function generateButtons() {
-    var operators = ['+', '-', '*', '/'];
-    var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    var btnValues = operators.concat(numbers);
+    var btnValues = ['+', '-', '*', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     var allButtons = [];
 
     for(var i = 0; i < btnValues.length; i++) {
-      var button = document.querySelector('button[value="' + btnValues[i] + '"]');
-      allButtons.push(button);
+      allButtons.push(document.querySelector('button[value="' + btnValues[i] + '"]'));
     }
 
     return allButtons;
   }
 
   function addClickHandlers() {
-    equalsButton.addEventListener('click', calculateEquation);
-    clearButton.addEventListener('click', clearAll);
+    document.querySelector('button[value="="]').addEventListener('click', calculateEquation);
+    document.querySelector('button[value="C"]').addEventListener('click', clearAll);
 
     generateButtons().forEach(function(btn) {
       btn.addEventListener('click', printValue);
@@ -42,7 +36,9 @@
     display.value = '';
   }
 
-  generateButtons();
-  addClickHandlers();
+  function init() {
+    addClickHandlers();
+  }
 
+  init();
 })();
