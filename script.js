@@ -15,14 +15,16 @@
       allButtons.push(button);
     }
 
-    allButtons.forEach(function(btn) {
-      btn.addEventListener('click', printValue);
-    });
+    return allButtons;
   }
 
   function addClickHandlers() {
     equalsButton.addEventListener('click', calculateEquation);
     clearButton.addEventListener('click', clearAll);
+
+    generateButtons().forEach(function(btn) {
+      btn.addEventListener('click', printValue);
+    });
   }
 
   function printValue(event) {
