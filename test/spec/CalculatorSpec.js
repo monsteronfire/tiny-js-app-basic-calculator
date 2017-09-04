@@ -12,4 +12,10 @@ describe("Calculator", function () {
       expect(calculator.subtract(10, 2)).toBe(10 - 2);
     });
   });
+
+  describe("multiple function", function () {
+    it("should multipy two numbers", function () {
+      expect(calculator.multiply(10, 3)).toBe(10 * 3);
+    });
+  });
 });
