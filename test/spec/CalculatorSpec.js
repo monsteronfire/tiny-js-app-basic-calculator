@@ -18,4 +18,10 @@ describe("Calculator", function () {
       expect(calculator.multiply(10, 3)).toBe(10 * 3);
     });
   });
+
+  describe("divide function", function () {
+    it("should divide two numbers", function () {
+      expect(calculator.divide(9, 3)).toBe(9 / 3);
+    });
+  });
 });

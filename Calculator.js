@@ -14,6 +14,10 @@ Calculator.prototype.multiply = function(num1, num2) {
   return num1 * num2;
 };
 
+Calculator.prototype.divide = function (num1, num2) {
+  return num1 / num2;
+};
+
 //var Calculator = (function () {
   //var display = document.querySelector('input[name="display"]');
 
