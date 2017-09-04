@@ -1,3 +1,15 @@
+var Calculator = function () {
+  return this;
+};
+
+Calculator.prototype.add = function(num1, num2) {
+  return num1 + num2;
+};
+
+Calculator.prototype.subtract = function(num1, num2) {
+  return num1 - num2;
+};
+
 //var Calculator = (function () {
   //var display = document.querySelector('input[name="display"]');
 
